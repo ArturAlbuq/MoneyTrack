@@ -9,10 +9,13 @@ import type {
 } from "../types";
 import { allowedCategories, normalizeCategory } from "./categories";
 import { allowedPaymentMethods, normalizePaymentMethod } from "./paymentMethods";
+import {
+  getPersistedDataSchemaVersion,
+  loadPersistedData,
+  savePersistedData
+} from "./persistedData";
 
-const APP_STORAGE_KEY = "moneytrack.appdata.v1";
-const LEGACY_TRANSACTIONS_KEY = "moneytrack.transactions.v1";
-export const APP_DATA_SCHEMA_VERSION = 1;
+export const APP_DATA_SCHEMA_VERSION = getPersistedDataSchemaVersion();
 
 const categoryMap: Record<string, string> = {
   Salary: "Salário",
@@ -208,71 +211,17 @@ export function normalizeAppData(input: Partial<AppData>): AppData {
   };
 }
 
-function migrateLegacyTransactions(): AppData {
-  if (typeof window === "undefined") {
-    return normalizedSeed();
-  }
-
-  const legacyRaw = window.localStorage.getItem(LEGACY_TRANSACTIONS_KEY);
-
-  if (!legacyRaw) {
-    return normalizedSeed();
-  }
-
-  try {
-    const parsed = JSON.parse(legacyRaw) as Transaction[];
-    return normalizeAppData({
-      ...normalizedSeed(),
-      transactions: parsed
-    });
-  } catch {
-    return normalizedSeed();
-  }
-}
-
 export function loadAppData(): AppData {
-  if (typeof window === "undefined") {
-    return normalizedSeed();
-  }
-
-  const raw = window.localStorage.getItem(APP_STORAGE_KEY);
-
-  if (!raw) {
-    const seeded = migrateLegacyTransactions();
-    saveAppData(seeded);
-    return seeded;
-  }
-
-  try {
-    const parsed = JSON.parse(raw) as Partial<AppData>;
-    const normalized = normalizeAppData(parsed);
-
-    if (normalized.transactions.length === 0) {
-      const seeded = migrateLegacyTransactions();
-      saveAppData(seeded);
-      return seeded;
-    }
-
-    saveAppData(normalized);
-    return normalized;
-  } catch {
-    const seeded = migrateLegacyTransactions();
-    saveAppData(seeded);
-    return seeded;
-  }
+  return loadPersistedData(normalizeAppData, normalizedSeed);
 }
 
-export function saveAppData(data: AppData): void {
-  if (typeof window === "undefined") {
-    return;
-  }
-
+export function saveAppData(data: AppData): boolean {
   const normalized = normalizeAppData({
     ...data,
     updatedAt: new Date().toISOString()
   });
 
-  window.localStorage.setItem(APP_STORAGE_KEY, JSON.stringify(normalized));
+  return savePersistedData(normalized);
 }
 
 export function clearAppData(): AppData {
