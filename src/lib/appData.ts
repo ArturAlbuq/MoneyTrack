@@ -8,6 +8,7 @@ import type {
   UserPreferences
 } from "../types";
 import { allowedCategories, normalizeCategory } from "./categories";
+import { parseCurrencyInput } from "./format";
 import { allowedPaymentMethods, normalizePaymentMethod } from "./paymentMethods";
 import {
   getPersistedDataSchemaVersion,
@@ -94,9 +95,15 @@ function dedupeStrings(values: string[]): string[] {
 }
 
 function normalizeTransaction(transaction: Transaction): Transaction {
+  const numericAmount =
+    typeof transaction.amount === "number"
+      ? transaction.amount
+      : parseCurrencyInput(String(transaction.amount));
+
   return {
     ...transaction,
     id: transaction.id || crypto.randomUUID(),
+    amount: Number.isFinite(numericAmount) ? numericAmount : 0,
     category: normalizeCategory(categoryMap[transaction.category] ?? transaction.category),
     subcategory: (subcategoryMap[transaction.subcategory] ?? transaction.subcategory).trim(),
     merchant: transaction.merchant.trim(),

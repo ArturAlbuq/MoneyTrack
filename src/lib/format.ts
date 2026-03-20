@@ -5,6 +5,24 @@ export function formatCurrency(value: number): string {
   }).format(value);
 }
 
+export function parseCurrencyInput(value: string): number {
+  const normalized = value.trim().replace(/\s+/g, "");
+
+  if (!normalized) {
+    return Number.NaN;
+  }
+
+  const usesCommaAsDecimal =
+    normalized.includes(",") &&
+    (!normalized.includes(".") || normalized.lastIndexOf(",") > normalized.lastIndexOf("."));
+
+  const sanitized = usesCommaAsDecimal
+    ? normalized.replaceAll(".", "").replace(",", ".")
+    : normalized.replaceAll(",", "");
+
+  return Number(sanitized);
+}
+
 export function formatShortDate(value: string): string {
   return new Intl.DateTimeFormat("pt-BR", {
     month: "short",

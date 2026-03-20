@@ -417,6 +417,11 @@ button {
   color: var(--text-secondary);
 }
 
+.field-error {
+  color: var(--danger);
+  font-size: 0.84rem;
+}
+
 .history-panel {
   display: grid;
   gap: 1rem;

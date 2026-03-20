@@ -14,7 +14,7 @@ import {
   getMonthlyTrend
 } from "./lib/analytics";
 import { loadAppData, saveAppData } from "./lib/appData";
-import { formatCurrency } from "./lib/format";
+import { formatCurrency, parseCurrencyInput } from "./lib/format";
 import type {
   AppData,
   Screen,
@@ -32,10 +32,12 @@ const emptyFilters: TransactionFilters = {
 };
 
 function buildTransactionPayload(form: TransactionFormValues, existingId?: string): Transaction {
+  const amount = parseCurrencyInput(form.amount);
+
   return {
     id: existingId ?? crypto.randomUUID(),
     type: form.type,
-    amount: Number(form.amount),
+    amount: Number.isFinite(amount) ? amount : 0,
     date: form.date,
     category: form.category.trim(),
     subcategory: form.subcategory.trim(),

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { parseCurrencyInput } from "../lib/format";
 import { allowedPaymentMethods } from "../lib/paymentMethods";
 import type {
   PaymentMethod,
@@ -34,9 +35,11 @@ export function TransactionForm({
   onCancelEdit
 }: TransactionFormProps) {
   const [form, setForm] = useState<TransactionFormValues>(toFormValues(initialValue));
+  const [amountError, setAmountError] = useState("");
 
   useEffect(() => {
     setForm(toFormValues(initialValue));
+    setAmountError("");
   }, [initialValue]);
 
   function updateField<Key extends keyof TransactionFormValues>(
@@ -48,7 +51,17 @@ export function TransactionForm({
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    const parsedAmount = parseCurrencyInput(form.amount);
+
+    if (!Number.isFinite(parsedAmount) || parsedAmount < 0) {
+      setAmountError("Informe um valor válido. Exemplo: 12,50");
+      return;
+    }
+
     onSubmit(form);
+    setAmountError("");
+
     if (!initialValue) {
       setForm(toFormValues(null));
     }
@@ -90,9 +103,16 @@ export function TransactionForm({
             min="0"
             step="0.01"
             value={form.amount}
-            onChange={(event) => updateField("amount", event.target.value)}
+            onChange={(event) => {
+              updateField("amount", event.target.value);
+              if (amountError) {
+                setAmountError("");
+              }
+            }}
             placeholder="0,00"
+            aria-invalid={amountError ? "true" : "false"}
           />
+          {amountError ? <small className="field-error">{amountError}</small> : null}
         </label>
 
         <label>
