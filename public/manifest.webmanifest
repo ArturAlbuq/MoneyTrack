@@ -1,0 +1,29 @@
+{
+  "name": "MoneyTrack",
+  "short_name": "MoneyTrack",
+  "description": "Entenda exatamente para onde seu dinheiro vai com uma experiência premium.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#081311",
+  "theme_color": "#081311",
+  "icons": [
+    {
+      "src": "/branding/mt%20icone.png",
+      "sizes": "1536x1024",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/branding/mt%20icone.png",
+      "sizes": "1536x1024",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/branding/mt%20icone.png",
+      "sizes": "1536x1024",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

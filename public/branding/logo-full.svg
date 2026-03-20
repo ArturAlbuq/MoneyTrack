@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 220" role="img" aria-labelledby="title desc">
+  <title id="title">MoneyTrack Logo</title>
+  <desc id="desc">MoneyTrack wordmark with blue and green brand icon.</desc>
+  <defs>
+    <linearGradient id="pinStroke" x1="24%" y1="10%" x2="76%" y2="92%">
+      <stop offset="0%" stop-color="#36b4ff" />
+      <stop offset="46%" stop-color="#0d63ef" />
+      <stop offset="100%" stop-color="#0a2fa8" />
+    </linearGradient>
+    <linearGradient id="pinFill" x1="34%" y1="12%" x2="76%" y2="100%">
+      <stop offset="0%" stop-color="#29b8ff" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#0a2fa8" stop-opacity="0.55" />
+    </linearGradient>
+    <linearGradient id="barFill" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#a9ef22" />
+      <stop offset="55%" stop-color="#58d11f" />
+      <stop offset="100%" stop-color="#0c8f48" />
+    </linearGradient>
+    <linearGradient id="barShade" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f7e41" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#062f25" stop-opacity="0.45" />
+    </linearGradient>
+    <linearGradient id="moneyText" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7ef32f" />
+      <stop offset="45%" stop-color="#31b44c" />
+      <stop offset="100%" stop-color="#0f7d46" />
+    </linearGradient>
+    <linearGradient id="trackText" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2b95ff" />
+      <stop offset="45%" stop-color="#165cf3" />
+      <stop offset="100%" stop-color="#0b2fb1" />
+    </linearGradient>
+    <filter id="logoGlow" x="-20%" y="-30%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="0" stdDeviation="16" flood-color="#27b8ff" flood-opacity="0.25" />
+      <feDropShadow dx="0" dy="0" stdDeviation="18" flood-color="#66df29" flood-opacity="0.18" />
+    </filter>
+    <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="14" result="blur" />
+      <feColorMatrix
+        in="blur"
+        type="matrix"
+        values="1 0 0 0 0
+                0 1 0 0 0.3
+                0 0 1 0 0.55
+                0 0 0 0.8 0"
+      />
+    </filter>
+    <filter id="innerShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#03192f" flood-opacity="0.4" />
+    </filter>
+  </defs>
+
+  <g filter="url(#logoGlow)">
+    <g transform="translate(0 8) scale(0.7266)">
+      <g filter="url(#softGlow)" opacity="0.6">
+        <ellipse cx="128" cy="116" rx="72" ry="72" fill="#29b8ff" />
+        <ellipse cx="104" cy="126" rx="52" ry="52" fill="#5be028" />
+      </g>
+      <path
+        d="M128 22C87.1 22 54 55.1 54 96c0 54.2 62 115.5 69.1 122.3a7 7 0 0 0 9.8 0C140 211.5 202 150.2 202 96c0-40.9-33.1-74-74-74Z"
+        fill="url(#pinFill)"
+        stroke="url(#pinStroke)"
+        stroke-width="6"
+        filter="url(#innerShadow)"
+      />
+      <path
+        d="M132 34c30.9 0 56 25.1 56 56 0 37.6-29.6 80.7-58.2 109.6 36.8-11.8 64.2-55.7 64.2-103.6 0-40.9-33.1-74-74-74-28.7 0-53.6 16.3-66 40.1 14.8-16.9 36.4-28.1 60.8-28.1Z"
+        fill="#4cd0ff"
+        opacity="0.28"
+      />
+      <g transform="translate(62 68)">
+        <path d="M0 72 32 28v88H12Z" fill="url(#barFill)" stroke="#0e5c35" stroke-width="2" />
+        <path d="M38 40h34v76H38Z" fill="url(#barFill)" stroke="#0e5c35" stroke-width="2" />
+        <path d="M78 14h34v102H78Z" fill="url(#barFill)" stroke="#0e5c35" stroke-width="2" />
+        <path d="M118 0h34v116h-34Z" fill="url(#barFill)" stroke="#0e5c35" stroke-width="2" />
+        <path d="M0 72 32 28v88H12Z" fill="url(#barShade)" opacity="0.45" />
+        <path d="M38 40h10v76H38Z" fill="#d7ff63" opacity="0.25" />
+        <path d="M78 14h10v102H78Z" fill="#d7ff63" opacity="0.25" />
+        <path d="M118 0h10v116h-10Z" fill="#d7ff63" opacity="0.25" />
+      </g>
+      <g transform="translate(75 98)">
+        <path
+          d="M57.4 50.8c0 18.4-13.8 30-35.5 31.8V96H8.4V82.6c-11.9-.8-22.8-4.7-31.1-10.4l7.8-17.2c8 5.1 17.7 8.8 29.6 9.6V45.2C-1.4 41.3-12.6 32.5-12.6 15.7-12.6-2 0.4-14 21.9-15.8V-29h13.5v13c9.9.9 19.3 4 26.2 8.1l-7.1 17.1c-6.9-3.8-13.8-6.1-21.1-7V21c15.8 3.9 24 11.2 24 29.8Zm-50.1-31.7V1.6c-7.1 1.4-10.2 5.1-10.2 9.4 0 4.2 2.2 6.4 10.2 8.1ZM35.2 53c0-4.4-2.1-6.9-9.7-8.8v17.1c6.8-1.2 9.7-4 9.7-8.3Z"
+          fill="#0b5a40"
+          stroke="#03261b"
+          stroke-width="6"
+          stroke-linejoin="round"
+        />
+      </g>
+    </g>
+
+    <text
+      x="212"
+      y="132"
+      font-family="Space Grotesk, Segoe UI, sans-serif"
+      font-size="108"
+      font-weight="700"
+      letter-spacing="-4"
+      fill="url(#moneyText)"
+    >
+      Money
+    </text>
+    <text
+      x="520"
+      y="132"
+      font-family="Space Grotesk, Segoe UI, sans-serif"
+      font-size="108"
+      font-weight="700"
+      letter-spacing="-4"
+      fill="url(#trackText)"
+    >
+      Track
+    </text>
+  </g>
+</svg>

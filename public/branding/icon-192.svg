@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+  <defs>
+    <linearGradient id="pinStroke" x1="24%" y1="10%" x2="76%" y2="92%">
+      <stop offset="0%" stop-color="#36b4ff" />
+      <stop offset="46%" stop-color="#0d63ef" />
+      <stop offset="100%" stop-color="#0a2fa8" />
+    </linearGradient>
+    <linearGradient id="pinFill" x1="34%" y1="12%" x2="76%" y2="100%">
+      <stop offset="0%" stop-color="#29b8ff" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#0a2fa8" stop-opacity="0.55" />
+    </linearGradient>
+    <linearGradient id="barFill" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#a9ef22" />
+      <stop offset="55%" stop-color="#58d11f" />
+      <stop offset="100%" stop-color="#0c8f48" />
+    </linearGradient>
+    <linearGradient id="barShade" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f7e41" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#062f25" stop-opacity="0.45" />
+    </linearGradient>
+  </defs>
+  <rect width="192" height="192" rx="48" fill="#091311" />
+  <g transform="translate(12 9) scale(0.66)">
+    <path
+      d="M128 22C87.1 22 54 55.1 54 96c0 54.2 62 115.5 69.1 122.3a7 7 0 0 0 9.8 0C140 211.5 202 150.2 202 96c0-40.9-33.1-74-74-74Z"
+      fill="url(#pinFill)"
+      stroke="url(#pinStroke)"
+      stroke-width="6"
+    />
+    <path
+      d="M132 34c30.9 0 56 25.1 56 56 0 37.6-29.6 80.7-58.2 109.6 36.8-11.8 64.2-55.7 64.2-103.6 0-40.9-33.1-74-74-74-28.7 0-53.6 16.3-66 40.1 14.8-16.9 36.4-28.1 60.8-28.1Z"
+      fill="#4cd0ff"
+      opacity="0.28"
+    />
+    <g transform="translate(62 68)">
+      <path d="M0 72 32 28v88H12Z" fill="url(#barFill)" stroke="#0e5c35" stroke-width="2" />
+      <path d="M38 40h34v76H38Z" fill="url(#barFill)" stroke="#0e5c35" stroke-width="2" />
+      <path d="M78 14h34v102H78Z" fill="url(#barFill)" stroke="#0e5c35" stroke-width="2" />
+      <path d="M118 0h34v116h-34Z" fill="url(#barFill)" stroke="#0e5c35" stroke-width="2" />
+      <path d="M0 72 32 28v88H12Z" fill="url(#barShade)" opacity="0.45" />
+      <path d="M38 40h10v76H38Z" fill="#d7ff63" opacity="0.25" />
+      <path d="M78 14h10v102H78Z" fill="#d7ff63" opacity="0.25" />
+      <path d="M118 0h10v116h-10Z" fill="#d7ff63" opacity="0.25" />
+    </g>
+    <g transform="translate(75 98)">
+      <path
+        d="M57.4 50.8c0 18.4-13.8 30-35.5 31.8V96H8.4V82.6c-11.9-.8-22.8-4.7-31.1-10.4l7.8-17.2c8 5.1 17.7 8.8 29.6 9.6V45.2C-1.4 41.3-12.6 32.5-12.6 15.7-12.6-2 0.4-14 21.9-15.8V-29h13.5v13c9.9.9 19.3 4 26.2 8.1l-7.1 17.1c-6.9-3.8-13.8-6.1-21.1-7V21c15.8 3.9 24 11.2 24 29.8Zm-50.1-31.7V1.6c-7.1 1.4-10.2 5.1-10.2 9.4 0 4.2 2.2 6.4 10.2 8.1ZM35.2 53c0-4.4-2.1-6.9-9.7-8.8v17.1c6.8-1.2 9.7-4 9.7-8.3Z"
+        fill="#0b5a40"
+        stroke="#03261b"
+        stroke-width="6"
+        stroke-linejoin="round"
+      />
+    </g>
+  </g>
+</svg>
