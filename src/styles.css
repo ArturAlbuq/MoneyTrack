@@ -164,7 +164,7 @@ button {
 
 .tab-nav {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.55rem;
 }
 
@@ -277,6 +277,7 @@ button {
 .content-grid,
 .transactions-layout,
 .insights-layout,
+.settings-layout,
 .ranked-grid {
   display: grid;
   gap: 1rem;
@@ -733,6 +734,147 @@ textarea {
   border: 1px solid rgba(82, 214, 155, 0.14);
 }
 
+.settings-copy {
+  display: grid;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+}
+
+.settings-copy p,
+.feedback-banner p,
+.settings-action-card p,
+.mode-card p {
+  margin: 0;
+}
+
+.muted-copy {
+  color: var(--text-secondary);
+}
+
+.settings-actions {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.settings-action-card,
+.mode-card {
+  display: grid;
+  gap: 0.9rem;
+  padding: 1rem;
+  border-radius: 22px;
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+}
+
+.settings-action-card h3,
+.mode-card strong {
+  margin: 0 0 0.25rem;
+}
+
+.settings-action-card p,
+.mode-card p {
+  color: var(--text-secondary);
+}
+
+.settings-action-buttons,
+.modal-actions,
+.data-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.danger-zone {
+  border-color: rgba(255, 143, 129, 0.24);
+}
+
+.feedback-banner {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.9rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 20px;
+  border: 1px solid transparent;
+}
+
+.feedback-banner.success {
+  background: rgba(82, 214, 155, 0.09);
+  border-color: rgba(82, 214, 155, 0.16);
+}
+
+.feedback-banner.error {
+  background: rgba(255, 143, 129, 0.09);
+  border-color: rgba(255, 143, 129, 0.16);
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(4, 8, 7, 0.72);
+  backdrop-filter: blur(10px);
+  z-index: 20;
+}
+
+.modal-card {
+  width: min(100%, 42rem);
+  padding: 1rem;
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(14, 28, 25, 0.98), rgba(10, 20, 18, 0.92));
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow);
+}
+
+.import-mode-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin: 1rem 0;
+}
+
+.mode-card {
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.mode-card.active {
+  border-color: rgba(82, 214, 155, 0.4);
+  background: rgba(82, 214, 155, 0.09);
+  box-shadow: 0 12px 24px rgba(14, 76, 57, 0.18);
+}
+
+.mode-card:hover {
+  transform: translateY(-1px);
+  border-color: var(--border-strong);
+}
+
+.data-points {
+  margin-bottom: 1rem;
+}
+
+.data-points span {
+  padding: 0.38rem 0.72rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+
+.dialog-field {
+  display: grid;
+  gap: 0.45rem;
+  margin: 1rem 0;
+}
+
 .tab:hover,
 .segment:hover,
 .ghost-button:hover,
@@ -763,6 +905,7 @@ textarea {
   .highlight-grid,
   .content-grid,
   .transactions-layout,
+  .settings-layout,
   .ranked-grid {
     grid-template-columns: 1fr;
   }
@@ -804,7 +947,8 @@ textarea {
   .tab-nav,
   .transaction-form,
   .filters-grid,
-  .filters-grid-embedded {
+  .filters-grid-embedded,
+  .import-mode-grid {
     grid-template-columns: 1fr;
   }
 
@@ -860,5 +1004,10 @@ textarea {
 
   .filters-heading {
     flex-direction: column;
+  }
+
+  .modal-card {
+    padding: 0.9rem;
+    border-radius: 24px;
   }
 }

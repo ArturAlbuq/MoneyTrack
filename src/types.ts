@@ -57,4 +57,48 @@ export interface MonthlyTrendItem {
   balance: number;
 }
 
-export type Screen = "dashboard" | "transactions" | "insights";
+export interface Account {
+  id: string;
+  name: string;
+  type: "cash" | "bank" | "credit" | "investment" | "other";
+}
+
+export interface Goal {
+  id: string;
+  name: string;
+  targetAmount: number;
+  currentAmount: number;
+  dueDate?: string;
+}
+
+export interface UserPreferences {
+  currency: string;
+  locale: string;
+  theme: "dark";
+}
+
+export interface AppData {
+  transactions: Transaction[];
+  categories: string[];
+  accounts: Account[];
+  paymentMethods: PaymentMethod[];
+  goals: Goal[];
+  preferences: UserPreferences;
+  schemaVersion: number;
+  updatedAt: string;
+}
+
+export interface BackupData {
+  transactions: Transaction[];
+  categories: string[];
+  accounts: Account[];
+  paymentMethods: PaymentMethod[];
+  goals: Goal[];
+  preferences: UserPreferences;
+  schemaVersion: number;
+  exportedAt: string;
+}
+
+export type ImportMode = "replace" | "merge";
+
+export type Screen = "dashboard" | "transactions" | "insights" | "settings";

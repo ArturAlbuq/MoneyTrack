@@ -8,7 +8,8 @@ interface HeaderProps {
 const screens: Array<{ id: Screen; label: string }> = [
   { id: "dashboard", label: "Dashboard" },
   { id: "transactions", label: "Lançamentos" },
-  { id: "insights", label: "Onde Gasto Mais" }
+  { id: "insights", label: "Onde Gasto Mais" },
+  { id: "settings", label: "Configurações" }
 ];
 
 export function Header({ activeScreen, onScreenChange }: HeaderProps) {
